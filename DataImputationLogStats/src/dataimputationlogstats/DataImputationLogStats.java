@@ -41,10 +41,10 @@ public class DataImputationLogStats {
         }
         else
         {
-            //String[] input_split = input.split("_");
-            //int length = Integer.parseInt(input_split[1]);
-            //perc = (int) 0.1*length;
-            //System.out.println(perc);
+            String[] input_split = input.split("_");
+            int length = Integer.parseInt(input_split[1]);
+            perc = (int) length/10;
+            System.out.println(perc);
         }
         String miss_perc = perc.toString();
         String root = currentDir + "/" +  "/" + alg + "/" + scen + "/" + input + "/";
