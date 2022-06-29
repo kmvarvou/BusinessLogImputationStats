@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dataimputationlogstats;
 
 import java.io.BufferedReader;
@@ -39,12 +34,20 @@ public class DataImputationLogStats {
         {
             perc=100;
         }
+        else if(scen.equals("miss_disj"))
+        {
+            String[] input_split = input.split("_");
+            int length = Integer.parseInt(input_split[1]);
+            perc =  (int) length/10;
+            perc = (int) length/perc;
+           
+        }
         else
         {
             String[] input_split = input.split("_");
             int length = Integer.parseInt(input_split[1]);
-            perc = (int) length/10;
-            System.out.println(perc);
+            perc =  (int) length/10;
+            
         }
         String miss_perc = perc.toString();
         String root = currentDir + "/" +  "/" + alg + "/" + scen + "/" + input + "/";
@@ -167,7 +170,7 @@ public class DataImputationLogStats {
         String index = root + "index/";
         
         String index_path;
-        if(scen.equals("mcar"))
+        if(scen.equals("mcar") || scen.equals("miss_disj"))
         {
           index_path = index + "index"  + ".txt";
         }
